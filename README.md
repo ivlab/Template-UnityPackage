@@ -4,9 +4,11 @@ Template repository for an IVLab Unity package, including structure and document
 
 Package structure should follow the [Lab Guidelines on Unity Packages](https://docs.google.com/document/d/1BWo-OIJx3uG72XyvIiO-t1jVDnXKFhoxj-o5VYO5Gq0/edit?usp=sharing).
 
+Before getting started, think of a name for your package. IVLab Unity package names should follow the convention "<YourPackage>-UnityPackage" - for example, "OBJImport-UnityPackage".
+
 ## Getting Started
 
-This is a template Unity package. Click the "Use this template" button in this GitHub repository, then follow this guide and the [Making Unity Packages](https://docs.google.com/document/d/1BWo-OIJx3uG72XyvIiO-t1jVDnXKFhoxj-o5VYO5Gq0/edit?usp=sharing) document to get started.
+This is a template Unity package. Click the "Use this template" button in this GitHub repository, clone your new repository, then follow this guide and the [Making Unity Packages](https://docs.google.com/document/d/1BWo-OIJx3uG72XyvIiO-t1jVDnXKFhoxj-o5VYO5Gq0/edit?usp=sharing) document to get started.
 
 1. In `package.json`:
     - Replace the template name with your package name (don't need to retain "IVLab" in package name)
