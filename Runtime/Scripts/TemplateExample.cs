@@ -35,7 +35,7 @@ namespace IVLab.Template
         /// <example><code>
         /// int x = DoWork(10);
         /// Debug.Log(x); // prints 11
-        /// </example></code>
+        /// </code></example>
         public int DoWork(int test)
         {
             return test + 1;

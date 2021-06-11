@@ -6,10 +6,10 @@ Package structure should follow the [Lab Guidelines on Unity Packages](https://d
 
 ## Getting Started
 
-This is a template Unity package. Clone this repository, then use the following steps to get started developing your Unity package.
+This is a template Unity package. Clone this repository, then follow this guide and the [Making Unity Packages](https://docs.google.com/document/d/1BWo-OIJx3uG72XyvIiO-t1jVDnXKFhoxj-o5VYO5Gq0/edit?usp=sharing) document to get started.
 
 1. In `package.json`:
-    - Replace the template name with your package name
+    - Replace the template name with your package name (don't need to retain "IVLab" in package name)
     - Replace the template identifier with your package identifier (retain the `edu.umn.cs.ivlab` portion and add identifiers as necessary [e.g. `edu.umn.cs.ivlab.utilities`])
 2. Rename `Runtime/IVLab.Template.Runtime.asmdef` to match your package name (only change the `Template` part, and add namespaces as appropriate)
 3. In the new `Runtime/IVLab.<YourPackage>.Runtime.asmdef`, edit the assembly `name` to match the asmdef file name.
