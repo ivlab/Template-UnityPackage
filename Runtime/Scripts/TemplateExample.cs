@@ -11,7 +11,9 @@ using UnityEngine;
 namespace IVLab.Template
 {
     /// <summary>
-    /// Simple example of what can be done in C#. This text is an XML comment, and will show up nicely formatted in the documentation associated with this class.
+    /// Simple example of what can be done in C#. This text is an XML comment,
+    /// and will show up nicely formatted in the documentation associated with
+    /// this class.
     /// </summary>
     public class TemplateExample : MonoBehaviour
     {

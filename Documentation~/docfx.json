@@ -21,7 +21,7 @@
         "globalMetadata": {
             "_appTitle": "IVLab Template Project",
             "_appFooter": "IVLab Template Project",
-            "_appLogoPath": "resources/IVLab.svg",
+            "_appLogoPath": "resources/logo.svg",
             "_appFaviconPath": "resources/favicon.ico",
             "_enableSearch": true
         },
