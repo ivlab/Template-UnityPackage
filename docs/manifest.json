@@ -10,7 +10,7 @@
     "changefreq": "weekly"
   },
   "homepages": [],
-  "source_base_path": "C:/Users/scoot/dev/Sandbox-herma582/Packages/IVLab-Template-UnityPackage/Documentation",
+  "source_base_path": "C:/Users/scoot/dev/IVLab-Template-UnityPackage/Documentation~",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/IVLab.Template.TemplateExample.html",
-          "hash": "3SN3wvugk7dvae19WpY5O0ZxHWns7z1lKAsTExa46dk="
+          "hash": "Ijd2V+NTH+f0BEzeEmyf52JQKW6NjkEOcn/ipagB7II="
         }
       },
       "is_incremental": false,
@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/IVLab.Template.html",
-          "hash": "BkXtq9RWmuiOvZIbJ8fW64yPNk+nOps2IiDRx43fFms="
+          "hash": "Xu3enfv+NJ9y8vESHHcbsVtfZPyuHRVyIqHDPcIuvXY="
         }
       },
       "is_incremental": false,
@@ -59,22 +59,15 @@
       "version": ""
     },
     {
-      "type": "Resource",
-      "source_relative_path": "resources/IVLAB.svg",
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
       "output": {
-        "resource": {
-          "relative_path": "resources/IVLAB.svg"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/IVLAB.svg.meta",
-      "output": {
-        "resource": {
-          "relative_path": "resources/IVLAB.svg.meta"
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "S7m4QmKVJV1wFU5VyATVgYRWd/Dhx2lMEX9PUCrsy80="
         }
       },
       "is_incremental": false,
@@ -93,10 +86,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "resources/favicon.ico.meta",
+      "source_relative_path": "resources/logo.svg",
       "output": {
         "resource": {
-          "relative_path": "resources/favicon.ico.meta"
+          "relative_path": "resources/logo.svg"
         }
       },
       "is_incremental": false,
@@ -108,7 +101,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "wtrCtDD4evaFH1KW4lZkpMmSDDI9v7DOA8Gx0i9SHGw="
+          "hash": "URxle0rrKG/Q2RsH6s7N0lGjm0jYu+MYeeivCui2ZzQ="
         }
       },
       "is_incremental": false,
@@ -124,11 +117,17 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 1
+        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 1
+          "skipped_file_count": 2
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
