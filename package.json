@@ -3,5 +3,6 @@
     "displayName": "IVLab Template UnityPackage",
     "version": "0.0.1",
     "unity": "2020.3",
+    "author": { "name": "University of Minnesota Interactive Visualization Lab", "email": "dfk@umn.edu", "url": "https://ivlab.cs.umn.edu" },
     "description": "Template package for the Interactive Visualization Lab."
 }
