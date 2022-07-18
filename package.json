@@ -1,8 +1,8 @@
 {
-    "name": "edu.umn.cs.mypackagename",
-    "displayName": "MyPackageName",
+    "name": "edu.umn.cs.template",
+    "displayName": "Template",
     "version": "0.1.0",
     "unity": "2020.3",
     "author": { "name": "IV/LAB", "email": "dfk@umn.edu", "url": "https://ivlab.cs.umn.edu" },
-    "description": "The MyPackageName package implements..."
+    "description": "The Template package implements..."
 }
