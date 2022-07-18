@@ -1,8 +1,8 @@
 {
-    "name": "edu.umn.cs.ivlab.template",
-    "displayName": "IVLab Template UnityPackage",
-    "version": "0.0.1",
+    "name": "edu.umn.cs.mypackagename",
+    "displayName": "MyPackageName",
+    "version": "0.1.0",
     "unity": "2020.3",
-    "author": { "name": "University of Minnesota Interactive Visualization Lab", "email": "dfk@umn.edu", "url": "https://ivlab.cs.umn.edu" },
-    "description": "Template package for the Interactive Visualization Lab."
+    "author": { "name": "IV/LAB", "email": "dfk@umn.edu", "url": "https://ivlab.cs.umn.edu" },
+    "description": "The MyPackageName package implements..."
 }
