@@ -69,6 +69,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   // get contribution information
   vm.docurl = common.getImproveTheDocHref(vm, gitContribute, gitUrlPattern);
   vm.sourceurl = common.getViewSourceHref(vm, null, gitUrlPattern);
+  console.log('source url: ' + vm.sourceurl)
 
   // set to null incase mustache looks up
   vm.summary = vm.summary || null;
@@ -81,7 +82,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   if (vm.inheritance) {
     normalizeLanguageValuePairs(vm.inheritance).forEach(handleInheritance);
   }
-  
+
   common.processSeeAlso(vm);
 
   // id is used as default template's bookmark

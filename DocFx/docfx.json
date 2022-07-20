@@ -1,7 +1,7 @@
 {
   "metadata": [
     {
-      "force": "true",
+      "force": true,
       "src": [
         {
           "src": "../",
@@ -26,13 +26,13 @@
         "_appFaviconPath": "resources/favicon.ico",
         "_enableSearch": true,
         "_gitUrlPattern": "github.umn.edu",
-        "_disableContribution": "false",
         "newFileRepository": {
           "branch": "master",
         },
         "_gitContribute": {
+          "repo": "git@github.umn.edu:ivlab-cs/IVLab-Template-UnityPackage.git",
           "branch": "master",
-          "path": "overwrites"
+          "path": "DocFx/apidocs-overrides"
         }
     },
     "content": [
@@ -63,7 +63,7 @@
     "overwrite": [
       {
         "files": [
-          "overwrites/*.md"
+          "apidocs-overrides/*.md"
         ]
       }
     ],

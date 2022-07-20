@@ -32,6 +32,8 @@ function getHtmlId(input) {
 // Note: the parameter `gitContribute` won't be used in this function
 function getViewSourceHref(item, gitContribute, gitUrlPattern) {
     if (!item || !item.source || !item.source.remote) return '';
+    console.log('item.source ' + item.source)
+    console.log('item.source.remote ' + item.source.remote)
     return getRemoteUrl(item.source.remote, item.source.startLine - '0' + 1, null, gitUrlPattern);
 }
 
@@ -77,6 +79,20 @@ var gitUrlPatternItems = {
           }
           return url;
       },
+    'github': {
+      // HTTPS form: https://github.com/{org}/{repo}.git
+      // SSH form: git@github.com:{org}/{repo}.git
+      // generate URL: https://github.com/{org}/{repo}/blob/{branch}/{path}
+      'testRegex': /^(https?:\/\/)?(\S+\@)?(\S+\.)?github\.com(\/|:).*/i,
+      'generateUrl': function (gitInfo) {
+          var url = normalizeGitUrlToHttps(gitInfo.repo);
+          url = getRepoWithoutGitExtension(url);
+          url += '/blob' + '/' + gitInfo.branch + '/' + gitInfo.path;
+          if (gitInfo.startLine && gitInfo.startLine > 0) {
+              url += '/#L' + gitInfo.startLine;
+          }
+          return url;
+      },
       'generateNewFileUrl': function (gitInfo, uid) {
           var url = normalizeGitUrlToHttps(gitInfo.repo);
           url = getRepoWithoutGitExtension(url);
@@ -88,31 +104,6 @@ var gitUrlPatternItems = {
           return url;
       }
   },
-  'github': {
-        // HTTPS form: https://github.com/{org}/{repo}.git
-        // SSH form: git@github.com:{org}/{repo}.git
-        // generate URL: https://github.com/{org}/{repo}/blob/{branch}/{path}
-        'testRegex': /^(https?:\/\/)?(\S+\@)?(\S+\.)?github\.com(\/|:).*/i,
-        'generateUrl': function (gitInfo) {
-            var url = normalizeGitUrlToHttps(gitInfo.repo);
-            url = getRepoWithoutGitExtension(url);
-            url += '/blob' + '/' + gitInfo.branch + '/' + gitInfo.path;
-            if (gitInfo.startLine && gitInfo.startLine > 0) {
-                url += '/#L' + gitInfo.startLine;
-            }
-            return url;
-        },
-        'generateNewFileUrl': function (gitInfo, uid) {
-            var url = normalizeGitUrlToHttps(gitInfo.repo);
-            url = getRepoWithoutGitExtension(url);
-            url += '/new';
-            url += '/' + gitInfo.branch;
-            url += '/' + getOverrideFolder(gitInfo.apiSpecFolder);
-            url += '/new?filename=' + getHtmlId(uid) + '.md';
-            url += '&value=' + encodeURIComponent(getOverrideTemplate(uid));
-            return url;
-        }
-    },
     'vso': {
         // HTTPS form: https://{account}@dev.azure.com/{account}/{project}/_git/{repo}
         // HTTPS form: https://{user}.visualstudio.com/{org}/_git/{repo}
@@ -165,7 +156,9 @@ function getRepoWithoutGitExtension(repo) {
 function normalizeGitUrlToHttps(repo) {
     var pos = repo.indexOf('@');
     if (pos == -1) return repo;
-    return 'https://' + repo.substr(pos + 1).replace(/:[0-9]+/g, '').replace(/:/g, '/');
+    var result = 'https://' + repo.substr(pos + 1).replace(/:[0-9]+/g, '').replace(/:/g, '/');
+    console.log('result: ' + result)
+    return result
 }
 
 function getNewFileUrl(item, gitContribute, gitUrlPattern) {
@@ -212,9 +205,6 @@ function getGitInfo(gitContribute, gitRemote) {
     mergeKey(gitContribute, gitRemote, result, 'branch');
     mergeKey(gitContribute, gitRemote, result, 'path');
 
-    console.log("repo: " + result.repo);
-    console.log("brach: " + result.branch);
-    console.log("path: " + result.path);
     return result;
 
     function mergeKey(source, sourceFallback, dest, key) {
