@@ -27,5 +27,5 @@ Now, clone your repository on your local computer and make the following edits. 
 3. In the new `Runtime/IVLab.<YourPackage>.Runtime.asmdef`, edit the assembly `name` to match the asmdef file name.
 4. Create your package, whilst following lab guidelines on Unity packages.
 5. Make sure to document your code as you write it (using [C# XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/recommended-tags-for-documentation-comments)), as shown in `Runtime/Scripts/TemplateExample.cs`.
-6. Generate the documentation for your package using the instructions found in [Documentation](Documentation).
+6. Generate the documentation for your package using the instructions found in [DocFx/README.md](DocFx/README.md).
 7. After you get it working, you will probably want to delete the instructions up to this point.  You may wish to keep the instructions in [README_INSTALL.md](README_INSTALL.md) as a guide for users of YourPackage.

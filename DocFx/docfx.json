@@ -31,7 +31,7 @@
         },
         "_gitContribute": {
           "repo": "git@github.umn.edu:ivlab-cs/IVLab-Template-UnityPackage.git",
-          "branch": "with-docfx",
+          "branch": "master",
           "path": "DocFx/apidocs-overrides",
           "apiSpecFolder": "DocFx/apidocs-overrides"
         }
