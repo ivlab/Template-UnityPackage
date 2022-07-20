@@ -1,2 +1,14 @@
-- name: Docs
+### YamlMime:TableOfContent
+- name: Home
+  href: index.md
+- name: Installation
+  href: concepts/
+  homepage: concepts/install.md
+- name: Concepts
+  href: concepts/
+  homepage: concepts/intro.md
+- name: API by Theme
+  href: api/
+  homepage: api/api_by_theme.md
+- name: Complete API
   href: api/
