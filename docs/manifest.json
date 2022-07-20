@@ -1,0 +1,200 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "baseUrl": "https://pages.github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage/",
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://pages.github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage/",
+    "changefreq": "weekly"
+  },
+  "homepages": [],
+  "source_base_path": "/Users/dfk/ivlab-code/Unity/IVLab-Template-UnityPackage/DocFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/IVLab.Template.TemplateExample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/IVLab.Template.TemplateExample.html",
+          "hash": "nzqlYIdhpx7LfqBU4QK14+3Dzk2sOaQJIobsHXoV8Xc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/IVLab.Template.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/IVLab.Template.html",
+          "hash": "uElswZ70Rp1YOQrnGKtD0cpW//SxGiayaVAzOzqH/Mc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/api_by_theme.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/api_by_theme.html",
+          "hash": "fLlEtLnRwUSjXFxajnFXvXCM8VMV6EigeYyRzgWY4+g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "concepts/concept1.md",
+      "output": {
+        ".html": {
+          "relative_path": "concepts/concept1.html",
+          "hash": "0y+ud8hSDM1aXWOtLnDTQd8d57YpYRhh379deUF6Ba8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "concepts/concept2.md",
+      "output": {
+        ".html": {
+          "relative_path": "concepts/concept2.html",
+          "hash": "FOtAfgM1Zd3eoYZ0F0AiRCotlGbjnIH0cpFuCZXpT74="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "concepts/install.md",
+      "output": {
+        ".html": {
+          "relative_path": "concepts/install.html",
+          "hash": "zUX6tRBXSw4UJPNWT8jV1s731lGrz8LR036Kal/a5AA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "concepts/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "concepts/intro.html",
+          "hash": "ZxV4j7Ogjp/ieKspWB027yjjOy0iozfhMP6r6TfCa8M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "Hi1ggSOUy8JOB0RyYTpvk44d60Gq3YnWrjr9RYmALVI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "resources/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "resources/logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

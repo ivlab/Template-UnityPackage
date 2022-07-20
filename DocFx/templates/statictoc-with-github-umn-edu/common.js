@@ -32,8 +32,6 @@ function getHtmlId(input) {
 // Note: the parameter `gitContribute` won't be used in this function
 function getViewSourceHref(item, gitContribute, gitUrlPattern) {
     if (!item || !item.source || !item.source.remote) return '';
-    console.log('item.source ' + item.source)
-    console.log('item.source.remote ' + item.source.remote)
     return getRemoteUrl(item.source.remote, item.source.startLine - '0' + 1, null, gitUrlPattern);
 }
 
@@ -79,7 +77,18 @@ var gitUrlPatternItems = {
           }
           return url;
       },
-    'github': {
+      'generateNewFileUrl': function (gitInfo, uid) {
+          var url = normalizeGitUrlToHttps(gitInfo.repo);
+          url = getRepoWithoutGitExtension(url);
+          url += '/new';
+          url += '/' + gitInfo.branch;
+          url += '/' + getOverrideFolder(gitInfo.apiSpecFolder);
+          url += '/new?filename=' + getHtmlId(uid) + '.md';
+          url += '&value=' + encodeURIComponent(getOverrideTemplate(uid));
+          return url;
+      }
+  },
+  'github': {
       // HTTPS form: https://github.com/{org}/{repo}.git
       // SSH form: git@github.com:{org}/{repo}.git
       // generate URL: https://github.com/{org}/{repo}/blob/{branch}/{path}
@@ -104,7 +113,7 @@ var gitUrlPatternItems = {
           return url;
       }
   },
-    'vso': {
+  'vso': {
         // HTTPS form: https://{account}@dev.azure.com/{account}/{project}/_git/{repo}
         // HTTPS form: https://{user}.visualstudio.com/{org}/_git/{repo}
         // SSH form: git@ssh.dev.azure.com:v3/{account}/{project}/{repo}
@@ -157,7 +166,6 @@ function normalizeGitUrlToHttps(repo) {
     var pos = repo.indexOf('@');
     if (pos == -1) return repo;
     var result = 'https://' + repo.substr(pos + 1).replace(/:[0-9]+/g, '').replace(/:/g, '/');
-    console.log('result: ' + result)
     return result
 }
 
@@ -217,16 +225,11 @@ function getGitInfo(gitContribute, gitRemote) {
 }
 
 function getPatternName(repo, gitUrlPattern) {
-    //console.log('repo:' + repo);
-    //console.log('gitUrlPattern:' + gitUrlPattern);
-
     if (gitUrlPattern && gitUrlPattern.toLowerCase() in gitUrlPatternItems) {
-        //console.log('found it');
         return gitUrlPattern.toLowerCase();
     } else {
         for (var p in gitUrlPatternItems) {
             if (gitUrlPatternItems[p].testRegex.test(repo)) {
-                //console.log('found via regex');
                 return p;
             }
         }
