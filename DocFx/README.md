@@ -1,53 +1,62 @@
-# Auto-generating documentation for IVLab-Utilities-UnityPackage
+# Generating Web Documentation for the Package with DocFx
 
-[**View the IVLab-Template Documentation**](https://pages.github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage/api/IVLab.Template.html)
-
-Documentation is generated using
-[DocFx](https://dotnet.github.io/docfx/index.html). There's a [handy
-repo](https://github.com/NormandErwan/DocFxForUnity) for using this with Unity,
-which we build on.
-
-Documentation should be generated for each release. Commit the HTML files
-in the /docs folder of this repo.
+[DocFx](https://dotnet.github.io/docfx/index.html) is a tool for auto-generating web-based documentation for C# projects by analyzing the C# source, including xml comments.  DocFx generates a static website, which is easily hosted using github pages.  You can see [the documentation for this project on github pages here](https://pages.github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage/api/IVLab.Template.html).
 
 
-## Required components and installation
+## Installing DocFx
 
-- DocFx is needed to generate the documentation. Download the latest stable
-version from [DocFx releases](https://github.com/dotnet/docfx/releases).
-- Unzip to somewhere useful to you, optionally somewhere on PATH.
+Install a recent stable release of DocFx by following [the instructions on their "getting started" page](https://dotnet.github.io/docfx/tutorial/docfx_getting_started.html).  The instructions differ a bit depending upon your platform.
 
 
-## Project setup
+## Generating Documentation
 
-You will need to modify the following files to point to your package name and namespaces contained within your package:
-- `docfx.json`
-- `filterConfig.yml`
+Before modifying this template project to fit your needs, try running docfx on the existing project.
 
-
-## Generating docs
-
-Run the following command from the root of this repo (tested with DocFX v2.57.2 on Windows):
-
-Windows:
-
+### Windows:
+Tested with DocFX v2.57.2 on Windows
 ```
-docfx.exe Documentation/docfx.json --serve
+cd root-of-repo
+docfx.exe DocFx/docfx.json --serve
 ```
-
 (You may need to replace `docfx.exe` with the absolute path `C:\Absolute\Path\To\docfx.exe`)
 
-Then go to a browser at http://localhost:8080 to view the docs
+### OSX with an M1 chip
+Tested with DocFx v2.59.3 installed via homebrew following [instructions for M1 architecture on this page](https://dotnet.github.io/docfx/tutorial/docfx_getting_started.html)
+```
+cd DocFX
+arch -x86_64 docfx docfx.json --serve  
+```
+
+
+## Viewing the Documentation
+Then go to a browser at http://localhost:8080 to view the docs.
+
+
+## Modifying the Documentation to Fit Your Project
+
+### Configuring DocFx
+- Scan through `DocFx/docfx.json` and edit the URLs and titles to fit your project.
+- You may also want to modify `DocFx\filterConfig.yml`.  You can use this to include or exclude portions of the API from the generated documentation.
+
+### Adding a Landing Page, Concepts Pages, and API-by-Theme Page
+- Edit `DocFx/index.md` to create the landing page for your project.
+- Edit the files inside `DocFx\concepts` to document the key concepts that are part of your project.  This is the place to include documentation that is not tied directly to a particular class or function.  You can include images and diagrams by placing them in the `DocFx\resources` folder and linking to them in your markdown file.  You can also reference classes and namespaces within the code from these "conceptual" pages.  Look at the examples in the directory to get started.
+- Edit the `DocFx/api/api_by_theme.md` file to generate the API by Theme page.  DocFx will automatically generate a list of all of the namespaces, classes, etc. in your project that shows up under the "Complete API" page.  Such a list is rarely very user friendly because it is just arranged alphabetically and mixes the big classes that everyone should know about together with smaller helper classes that can distract the reader from finding what they need in your documentation.  Soooo, the purpose of this page is to provide your own curated list of the most important classes in your code, organized by theme or functionality rather than alphabetically.  DocFx cannot create this automatically for you; you have to do it manually and update it when your code changes significantly, but your users will thank you :)
+
+
+## Deploying Docs on GitHub Pages
+
+Normally we do not commit files that are easily regenerated from source to github, but GitHub Pages looks for web documentation in a special folder called `docs`. The method of deploying to GitHub pages is simply to update the contents of the `docs` folder.  DocFx is already configured to send its output directly there.  Depending on how much activity your repo has seen since the last time the docs were refreshed, the new set of docs could change dramatically, with a lot of updates, new files, and even some deleted files (e.g., if you change the name of a class).  These files should all be managed with the usual `git add`, `git rm`, `git commit`, and `git push` commands.  There is nothing special about them in that sense; just be careful because committing auto-built files like this to github can lead to many changes at once!
 
 **Note: After you generate, the docs, *before* you commit them, make sure to
 enter the Unity editor at least once so that the corresponding .meta files are
 generated and your end users don't end up with hundreds of errors about missing
 .meta files!**
 
-**Note 2:** DocFX sometimes generates a folder called "obj" in a random place within the `Runtime` folder of your package. Add that folder to your .gitignore.
+**Note 2:** DocFX generates the documentation in place, which leaves a bunch of "obj" folders throughout your repo.  These are temporary.  You should not commit these to github!  Make sure your .gitignore ignores these obj folders.
 
+**Note 3:** The only file in the `DocFx/api` folder that should be committed to github is `api_by_theme.md`.  All of the others are regenerated by DocFx from the source.
 
-## Deploying Docs
 
 1. After building the docs and focusing the Unity editor, commit the generated changes
 2. In your repo on github.umn.edu, go to *Settings > GitHub Pages > Source* and change it to "master branch /docs folder"
