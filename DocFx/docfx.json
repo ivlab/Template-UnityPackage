@@ -1,0 +1,83 @@
+{
+  "metadata": [
+    {
+      "force": true,
+      "src": [
+        {
+          "src": "../",
+          "files": [
+            "Runtime/**.cs"
+          ],
+          "exclude": [
+            "**/obj/**",
+          ]
+        }
+      ],
+      "globalNamespaceId": "Global",
+      "filter": "filterConfig.yml",
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "globalMetadata": {
+        "_appTitle": "IVLab Template Project",
+        "_appFooter": "View Project Source at <a href=\"https://github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage\">https://github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage</a>",
+        "_appLogoPath": "resources/logo.svg",
+        "_appFaviconPath": "resources/favicon.ico",
+        "_enableSearch": true,
+        "_gitUrlPattern": "github.umn.edu",
+        "newFileRepository": {
+          "branch": "master",
+        },
+        "_gitContribute": {
+          "repo": "git@github.umn.edu:ivlab-cs/IVLab-Template-UnityPackage.git",
+          "branch": "with-docfx",
+          "path": "DocFx/apidocs-overrides",
+          "apiSpecFolder": "DocFx/apidocs-overrides"
+        }
+    },
+    "content": [
+      {
+        "files": [
+          "toc.yml",
+          "index.md",
+          "api/**.yml",
+          "api/**.md",
+          "concepts/**.yml",
+          "concepts/**.md",
+        ],
+        "exclude": [
+          "**/obj/**",
+        ]
+      },
+    ],
+    "resource": [
+      {
+        "files": [
+          "resources/**"
+        ],
+        "exclude": [
+          "**/obj/**",
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidocs-overrides/*.md"
+        ]
+      }
+    ],
+    "sitemap": {
+        "baseUrl": "https://pages.github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage",
+        "changefreq": "weekly",
+        "fileOptions": {
+            "api/*": {
+                "changefreq": "daily"
+            }
+        }
+    },
+    "dest": "../docs",
+    "template": "templates/statictoc-with-github-umn-edu"
+  }
+}
