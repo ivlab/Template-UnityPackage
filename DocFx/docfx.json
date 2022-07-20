@@ -21,7 +21,7 @@
   "build": {
     "globalMetadata": {
         "_appTitle": "IVLab Template Project",
-        "_appFooter": "IVLab Template Project",
+        "_appFooter": "View Project Source at <a href=\"https://github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage\">https://github.umn.edu/ivlab-cs/IVLab-Template-UnityPackage</a>",
         "_appLogoPath": "resources/logo.svg",
         "_appFaviconPath": "resources/favicon.ico",
         "_enableSearch": true,
