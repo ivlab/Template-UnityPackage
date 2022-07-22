@@ -38,7 +38,7 @@ You can also add to other portions of the documentation.  To link to a manual pa
 
 Edit the [DocumentationSrc~/index.md](DocumentationSrc~/index.md) file to create the content for your landing page.  This is a great place to start to learn markdown if you are new to it.  Try including an image, linking to other pages, or creating an itemized list or table.
 
-*Tip: The source for building the website is in the DocumentationSrc~ directory, and the website gets built into the Documentation~ directory.  The unusual tildas (~) at the end of the names is a Unity thing.  By convention, Unity places documentation for each package in a directory named Documentation~.  Also by convention, the Unity Editor ignores all directories with names that end with a tilda, so the documentation folder does not show up inside the editor and Unity does not create all those annoying .meta files for each file in the folder.  We adopt the same strategy for the documentation source, since it is built outside the Unity editor.  Be careful when working with these funky directory names in the unix shell.  You need to escape the tilda character by writing `\~` instead of `~`.  So, to change directories into the Documentation~ folder, you would type `cd Documentation\~` or use the tab auto-complete feature available in most shells, and let it do this for you!*
+*Tip: The source for building the website is in the DocumentationSrc~ directory, and the website gets built into the Documentation~ directory.  Look at the bottom of this document for a cheat sheet on all the important directories and files.*
 
 ### The Manual
 
