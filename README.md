@@ -1,10 +1,3 @@
-- create a sample
-- create an editor assembly
-- load into Unity
-- delete .meta
-
-
-
 # Template-UnityPackage
 
 Use this template repository to start a new project that you want to use as a Unity Package.  The template is already setup with these key features:
