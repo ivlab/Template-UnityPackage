@@ -19,7 +19,7 @@ The difference between the Samples assembly and the Runtime assembly is more of 
 
 ## Using the Template to Create Your Package
 
-Before getting started, think of a name for your package. IVLab Unity package names should follow the convention "<YourPackage>-UnityPackage", where <YourPackage> and the name you have picked - for example, "OBJImport-UnityPackage".  
+Before getting started, think of a name for your package. IVLab Unity package names should follow the convention "YourPackage-UnityPackage", where "YourPackage" is the name you have picked - for example, "OBJImport-UnityPackage".  
 
 Once you have a name in mind, click the "Use this template" button in this GitHub repository, and name your new repo accordingly.
 
