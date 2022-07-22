@@ -1,4 +1,4 @@
-/* TemplateExample.cs
+/* ExampleClass.cs
  *
  * Copyright (C) 2021, University of Minnesota
  * Authors: Bridger Herman <herma582@umn.edu>
@@ -15,7 +15,7 @@ namespace IVLab.Template
     /// and will show up nicely formatted in the documentation associated with
     /// this class.
     /// </summary>
-    public class TemplateExample : MonoBehaviour
+    public class ExampleClass : MonoBehaviour
     {
         private int _counter = 0;
 
