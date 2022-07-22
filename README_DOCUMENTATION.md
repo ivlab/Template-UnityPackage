@@ -25,11 +25,11 @@ The API documentation is auto-generated from your C# files.  The content for all
 
 ## DocFx Markdown Basics
 
-Markdown is an easy-to-remember syntax ([link to a github markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)) that gets converted into great looking html.  Markdown supports bullet lists, links, images, code snippets, and more.  All of github-flavor markdown is supported, and DocFx-flavor markdown even includes a few additions, [like support for embedded youtube videos](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html#video).  
+Markdown is an easy-to-remember syntax ([link to a github markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)) that gets converted into great looking html.  Markdown supports bullet lists, links, images, code snippets, and more.  All of github-flavor markdown is supported, and DocFx-flavor markdown even includes a few fancy additions, [like support for embedded youtube videos](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html#video).  
 
 Any images or other non-textual resources you wish to use on the page should be added to the [DocumentationSrc~/resources](DocumentationSrc~/resources) folder.  Then, reference them in your markdown using a relative path from the location of your markdown file to the resources folder.
 
-You can also add to other portions of the documentation.  To link to a manual page, add a markdown link with a relative path to the relevant .md file.  To link to a page in the API documentation, use [DocFx's Cross-Reference feature](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#using-cross-reference).  In brief, the shorthand from to link to the documentation for a class is to write the "at" symbol followed by the namespace (if any) and the classname (e.g., \@IVLab.MinVR3.VREvent).
+You can link from one page of the documentation to another if you like.  To link to a manual page, add a markdown link with a relative path to the relevant .md file.  To link to a page in the API documentation, use [DocFx's Cross-Reference feature](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#using-cross-reference).  In brief, the shorthand from to link to the documentation for a class is to write the "at" symbol followed by the namespace (if any) and the classname (e.g., \@IVLab.MinVR3.VREvent).
 
 
 ## Creating Each Section of the Website
@@ -62,15 +62,15 @@ public class Point
 }
 ```
 
-You can include or exclude portions of the API from the generated documentation by editing [DocumentationSrc~\filterConfig.yml](DocumentationSrc~\filterConfig.yml).
+You can include or exclude portions of the API from the generated documentation by editing [DocumentationSrc~/filterConfig.yml](DocumentationSrc~/filterConfig.yml).
 
 ### The API Documentation "Overrides"
 
 DocFx includes some cool features for github-hosted projects, specifically it will add two special links on the right hand side of each page it generates, one for "Improve this Doc" and one for "View Source".  These links take readers directly to a relevant page on github where they can edit or add to the source or documentation.  
 
-The "Improve this Doc" link uses what DocFx calls an overwrite file.  This is a markdown file but with a bit of special meta data at the top to tell DocFx what the contents refer to.  If you click the "Improve this Doc" link while viewing a namespace or class, DocFx will send you to the git repo and start the process of creating an override document that allows you to add extra information into the docs for the particular class or namespace you are viewing.  This is an override in the sense that you are not modifying the actual C# source file, you are adding documentation that gets associated with and replaces some pieces of the documentation generated from the C# source file.  This provides one quick way to edit the documentation.  Of course, the other is to go right to the source, which you can do with the "View Source" link.
+The "Improve this Doc" link uses what DocFx calls an overwrite file.  This is a markdown file but with a bit of special meta data at the top to tell DocFx what the contents refer to.  If you click the "Improve this Doc" link while viewing a namespace or class, DocFx will send you to the git repo and start the process of creating an override document that allows you to add extra information into the docs for the particular class or namespace you are viewing.  This is an override in the sense that you are not modifying the documentation within the actual C# source file, you are adding a new documentation file that gets associated with the C# source file to supplement / replace a portion of it's documentation.  
 
-One downside of this approach is that the documentation for a piece of the API, like a class or method, can end up living in two places: documentation comments with the source itself and an override file. However, the upsides are: 1. It works really well for manual pages. 2. It works really well for documenting namespaces, where there is not really a single place in the code one would go to add documentation.  3. For sourcecode, the View Source link is really fantastic.  It takes you right to the correct line in the file, and if you wish to edit the file and then commit a change, you can just do this via the normal github web interface.
+One potential downside of this approach is that portions of the documentation for a piece of the API, like a class or method, can end up living in multiple files: the C# source file itself and additional override file(s).  However, the upsides are: 1. It works really well for manual pages where the link takes you to a markdown page you can edit rather than doing an override. 2. It works really well for documenting namespaces, where there is not really a single place in the code one would go to add documentation.  3. For sourcecode, the View Source link is really fantastic.  It takes you right to the correct line in the file, and if you wish to edit the file and then commit a change, you can just do this via the normal github web interface.  So, DocFx makes adding documentation right to the source easy as well.
 
 All of the overrides go in the [DocumentationSrc~/apidocs-overrides](DocumentationSrc~/apidocs-overrides) folder.  They are also written in markdown, but there is a special meta data section at the top.  Follow the examples in the directory to reproduce this section or just use the "Improve this Doc" link to have DocFx create this part for you and send you to github to fill in the rest of the file.
 
@@ -115,8 +115,9 @@ cd DocumentationSrc\~
 ./build-docs
 ```
 5. View the results!  DocFx automatically starts up a webserver so you can preview the results.  Just open a browser and load up http://localhost:8080 to see the website.  Kill the server with Ctrl-C when you're done.
+6. Edit the various parts of the website introduced earlier to make it work for your package.  Then, run the build-docs script again to regenerate it and view the results.
 
-Note:  Run `build-docs --help` to see other options including build without starting the server and deleting all the intermediate build files docfx generates.
+*Tip:  Run `build-docs --help` to see other options including build without starting the server and deleting all the intermediate build files docfx generates.*
 
 
 ## Deploying on GitHub Pages
@@ -134,11 +135,15 @@ git commit -m "updated documentation"
 Documentation\~/build-docs --publish
 ```
 
-3. If it is the first time you have done this, then you also need to tell github that you would like to use github pages for this repo.  
-  - Go to the page for your repo on github.com or github.umn.edu.
+3. If it is the first time you have done this, then you may also need to tell github that you would like to use github pages for this repo (or github may now do this automatically).  
+  - Go to your repo on github.com or github.umn.edu.
   - Click *Settings* (Top Right) then select *Pages* (Bottom Left)
   - Under *Source* click on the dropdown labeled "None", select the "gh-pages" branch, and click *Save*.
 
+Your website should appear at a url like this:
+https://pages.github.umn.edu/ivlab-cs/YourPackage-UnityPackage/
+or
+https://pages.github.com/ivlab/YourPackage-UnityPackage/
 
 To update the gh-pages version of the documentation in the future, you'll need to repeat steps 1-2.  
 
