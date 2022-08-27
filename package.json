@@ -4,7 +4,7 @@
     "description": "The Template package implements...",
     "version": "0.1.0",
     "unity": "2020.3",
-    "author": { "name": "IVLab", "email": "dfk@umn.edu", "url": "https://ivlab.cs.umn.edu" },
+    "author": { "name": "IVLab", "email": "ivlab-admin@umn.edu", "url": "https://ivlab.cs.umn.edu" },
     "documentationUrl": "https://pages.github.umn.edu/ivlab-cs/Template-UnityPackage",
     "changelogUrl": "https://pages.github.umn.edu/ivlab-cs/Template-UnityPackage/manual/changelog.html",
     "licensesUrl": "https://pages.github.umn.edu/ivlab-cs/Template-UnityPackage/manual/license.html",
