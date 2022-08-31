@@ -101,6 +101,15 @@ In the _gitContribute section, set the repo using either the ssh form or the htt
 ```
 A "new file" is created when users click on the "Improve this Doc" link but there is no clear choice for a file to modify.  In this case, DocFx decides the best action is to have the user add a completely new file to the repo where they document to their heart's content.  It's not clear how useful this is because if that file is not associated with any other part of the documentation or included in a table of contents, then users will not know how to reach it.  Nevertheless, this setting is for the branch to use when these new files are created.
 
+**As a last step before running DocFx, make sure you have *.csproj files in the root folder of your package.** At a minimum, you should have a .csproj file corresponding to the main namespace of your package (for this template, the file is `IVLab.Template.Runtime.csproj`). If these files aren't present, make sure you have set up your (external script editor correctly in Unity preferences)[https://docs.unity3d.com/Manual/Preferences.html#external-tools] with the following steps:
+
+1. Open a Unity project containing your package
+2. Go to *Edit > Preferences > External Tools*
+3. Set your (external script editor)[https://docs.unity3d.com/Manual/Preferences.html#external-tools] (usually, Visual Studio or Visual Studio Code)
+4. Check the "Embedded Packages", "Local Packages", and "Tarball Packages" checkboxes
+5. Click "Regenerate Project Files"
+
+This final step will not only help you generate the documentation correctly, it'll also help Intellisense and other helpful code editing features work correctly with Unity classes!
 
 ## Actually Running DocFx to Generate the Documentation!
 
@@ -154,6 +163,7 @@ If your site is hosted on github.com you can make step 2 happen automatically wh
 
 Key Files and Directories:
 ```
+*.csproj --> C# project files declaring classes, methods, etc. Helpful for intellisense and documentation cross references.
 Runtime/Scripts --> root for .cs files that are the source for the API
 Documentation~ --> DocFx destination dir; holds the complete built website.
 DocumentationSrc~ --> DocFx and Markdown source for building the website.
