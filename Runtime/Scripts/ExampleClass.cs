@@ -34,6 +34,11 @@ namespace IVLab.Template
             get { return m_Angle; }
         }
 
+        /// <summary>
+        /// Read-only access to the current rotation axis (euler).
+        /// </summary>
+        public Vector3 RotationAxis { get => m_Axis; }
+
 
         /// <summary>
         /// Returns the amount of rotation that occurs over a specified unit of time given the
@@ -57,7 +62,7 @@ namespace IVLab.Template
         void Update()
         {
             m_Angle += RotationForDeltaTime(Time.deltaTime);
-            transform.localRotation = Quaternion.Euler(0.0f, m_Angle, 0.0f);
+            transform.localRotation = Quaternion.Euler(m_Angle * m_Axis);
         }
 
 
@@ -66,6 +71,10 @@ namespace IVLab.Template
         // inital setting, exposed in the Unity editor
         [Tooltip("Speed of rotation in degrees per second.")]
         [SerializeField] private float m_Speed = 10.0f;
+
+        // inital setting, exposed in the Unity editor
+        [Tooltip("Axis to rotate the object about.")]
+        [SerializeField] private Vector3 m_Axis = Vector3.up;
 
         // runtime only variable, not exposed in the editor
         private float m_Angle = 0.0f;
