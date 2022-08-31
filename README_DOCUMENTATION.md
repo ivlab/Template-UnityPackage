@@ -101,6 +101,8 @@ In the _gitContribute section, set the repo using either the ssh form or the htt
 ```
 A "new file" is created when users click on the "Improve this Doc" link but there is no clear choice for a file to modify.  In this case, DocFx decides the best action is to have the user add a completely new file to the repo where they document to their heart's content.  It's not clear how useful this is because if that file is not associated with any other part of the documentation or included in a table of contents, then users will not know how to reach it.  Nevertheless, this setting is for the branch to use when these new files are created.
 
+You will also need to update the namespace your project uses in <DocumentationSrc~/filterConfig.yml>. See [filterConfig.yml on the DocFx docs](https://dotnet.github.io/docfx/tutorial/howto_filter_out_unwanted_apis_attributes.html) for more information.
+
 **As a last step before running DocFx, make sure you have *.csproj files in the root folder of your package.** At a minimum, you should have a .csproj file corresponding to the main namespace of your package (for this template, the file is `IVLab.Template.Runtime.csproj`). If these files aren't present, make sure you have set up your (external script editor correctly in Unity preferences)[https://docs.unity3d.com/Manual/Preferences.html#external-tools] with the following steps:
 
 1. Open a Unity project containing your package
