@@ -119,37 +119,6 @@ echo "- Working Dir: $scriptDir"
 echo "- Path to API Source: $apiSrcDir"
 echo "- Path to Doc Source: $docSrcDir"
 
-# Create a "fake" msbuild project file that lists all of the api source files
-# In theory, DocFx allows us to directly include a group of *.cs files as the
-# API source without wrapping them in a project.  In practice, several DocFx
-# features only work when a project file is present.
-tmpProjFile="api-documentation.csproj"
-echo "- MSBuild Project: $tmpProjFile"
-
-# Recursively find all the .cs source files in a way that works with older
-# bash versions, like on OSX.
-# https://stackoverflow.com/questions/23356779/how-can-i-store-the-find-command-results-as-an-array-in-bash
-srcFiles=()
-while IFS=  read -r -d $'\0'; do
-    srcFiles+=("$REPLY")
-done < <(find $apiSrcDir -type f -name '*.cs' -print0)
-
-# Write the msbuild project file
-echo "<Project ToolsVersion=\"4.0\" DefaultTargets=\"Build\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">" > $tmpProjFile
-echo "<PropertyGroup><DefineConstants>$preprocessorDefines</DefineConstants></PropertyGroup>" >> $tmpProjFile
-
-echo "<ItemGroup>" >> $tmpProjFile
-for i in "${srcFiles[@]}"; do
-   echo "<Compile Include=\"$i\"/>" >> $tmpProjFile
-done
-echo "</ItemGroup>" >> $tmpProjFile
-
-# Not sure if there is a way to do this that does not depend on this envvar
-# being set.  A no target error is produced if the next line is absent.
-echo "<Import Project=\"\$(MSBuildToolsPath)\Microsoft.CSharp.targets\" />" >> $tmpProjFile
-echo "</Project>" >> $tmpProjFile
-
-
 # Clean the output directory so there are no lingering files from a previous
 # build
 echo "- Output Website: $destDir"

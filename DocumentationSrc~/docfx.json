@@ -3,6 +3,7 @@
     {
       "src": [
         {
+          "cwd": "../../../",
           "files": [
             "*.csproj"
           ]
@@ -28,9 +29,9 @@
           "api/**.yml",
           "api/**.md",
           "manual/**.yml",
-          "manual/**.md",
+          "manual/**.md"
         ]
-      },
+      }
     ],
     "resource": [
       {
@@ -45,6 +46,12 @@
           "apidocs-edits/*.md"
         ]
       }
+    ],
+    "xref": [
+      "resources/xrefmap.yml"
+    ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
     "template": "templates/statictoc-with-github-umn-edu",
     "globalMetadataFiles": "projectMetadata.json",
