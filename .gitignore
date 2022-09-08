@@ -63,3 +63,6 @@ Runtime/Scripts/obj.meta
 .DS_Store
 .swp
 .vscode
+
+# Generated documentation
+Documentation~/
